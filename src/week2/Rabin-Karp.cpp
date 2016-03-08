@@ -14,6 +14,25 @@
  */
 
 
-int rabinKarp(std::string pattern, std::string text) {
-    throw "Not yet implemented";
+int rabinKarp(std::string p, std::string t) {
+    // Preproccess
+    int pHash = 0;
+    for (int i = 0; i < p.size(); i++) {
+    }
+
+    for (int i = 0; i < (int)(t.length() - p.length()); i++) {
+        // filter
+
+        bool match = true;
+        for (int j = 0; j < (int)p.length(); j++) {
+            if (t[i + j] != p[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            return i;
+        }
+    }
+    return -1;
 }
