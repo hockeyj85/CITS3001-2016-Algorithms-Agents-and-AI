@@ -5,9 +5,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
 
 add_subdirectory(src/week1)
 add_subdirectory(src/week2)
+add_subdirectory(src/week3)
 add_subdirectory(test)
 
 # To use the sandbox file uncomment the following links
-# add_executable(run_sandbox main.cpp)
+add_executable(run_sandbox main.cpp)
+# target_link_libraries(run_sandbox week1)
 # target_link_libraries(run_sandbox week2)
+target_link_libraries(run_sandbox week3)
 

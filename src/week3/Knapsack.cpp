@@ -2,9 +2,13 @@
 // Created by james on 16/03/16.
 //
 
+/**
+ * 0-1 Knapsack
+ */
+
 #include "Knapsack.h"
 
-int knapsack(std::vector<int> weights, std::vector<int> values, int capacity) {
+int knapsack(const std::vector<int> weights, const std::vector<int> values, int capacity) {
     int W = capacity, I = (int)values.size();
     if (values.size() != weights.size()) throw "Bad inputs";
 
