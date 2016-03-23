@@ -5,15 +5,24 @@ only public because it's not an assessable component and private repos cost mone
 
 # Week 1; Sorting
 
-* Insertion sort
-* Merge sort
+* [x] Insertion sort
+* [x] Merge sort
 
 # Week 2; Pattern Matching and Dynamic Programming
 
-* Naive string matching
-* Rabin-Karp
-* Knuth-Morris-Pratt
-* Boyer-Moore
-* Longest common subsequence
+* [x] Naive string matching
+* [x] Rabin-Karp
+* [ ] Knuth-Morris-Pratt
+* [ ] Boyer-Moore
+* [x] Longest common subsequence
 
+# Week 3; Knapsack
 
+* [x] 0-1 knapsack
+* [x] Fractional knapsack
+
+# Week 4; TSP
+
+* [ ] Using min spanning tree
+* [ ] Insertion based
+* [ ] Hill climber
