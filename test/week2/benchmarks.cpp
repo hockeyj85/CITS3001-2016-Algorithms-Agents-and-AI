@@ -23,23 +23,23 @@ public: std::string *text, *pattern;
         MatcherTestInfo t = GetParam();
 
         // Generate text
-        int textLength = t.textLength;
-        char *textCharArr = new char[textLength];
-        for (int i = 0; i < textLength; i++) {
+        char *tText = new char[t.textLength];
+        for (int i = 0; i < t.textLength; i++) {
             // Use lowercase letters
-            textCharArr[i] = i % 1;// (char) rand() % 1; //  (i % ('z' - 'a')) + 'a';
+            tText[i] = i % 128;
         }
-        text = new std::string(textCharArr, textLength);
+        text = new std::string(tText, t.textLength);
+        delete[] tText;
 
         // Generate pattern that *almost* matches.
-        int patternLength = t.patternLength;
-        char *patternCharArr = new char[patternLength];
-        for (int i = 0; i < patternLength; i++) {
+        char *tPattern = new char[t.patternLength];
+        for (int i = 0; i < t.patternLength; i++) {
             // Use lowercase letters
-            patternCharArr[i] = i % 1;//(char) rand() % 1; //(i % ('z' - 'a')) + 'a';
+            tPattern[i] = i % 128;
         }
-        patternCharArr[patternLength - 1] = 101;
-        pattern = new std::string(patternCharArr, patternLength);
+        tPattern[t.patternLength - 1] = 102;
+        pattern = new std::string(tPattern, t.patternLength);
+        delete[] tPattern;
     }
 
     void TearDown() {
@@ -52,6 +52,7 @@ public: std::string *text, *pattern;
 TEST_P(MatcherBenchmark, AlmostMatch) {
     MatcherTestInfo t = GetParam();
     int patternIndex = t.f_stringMatcher(*text, *pattern);
+    // Sanity check
     EXPECT_EQ(-1, patternIndex);
 }
 
