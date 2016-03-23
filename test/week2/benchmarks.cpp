@@ -56,7 +56,7 @@ TEST_P(MatcherBenchmark, AlmostMatch) {
 }
 
 std::function<int(std::string p, std::string t)> f_naive = naiveStringMatcher;
-MatcherTestInfo naiveTests[] = {
+std::vector<MatcherTestInfo> naiveTests = {
         {100,       1000,       f_naive},
         {100,       10000,      f_naive},
         {5000,      10000,      f_naive},
@@ -71,7 +71,7 @@ MatcherTestInfo naiveTests[] = {
 INSTANTIATE_TEST_CASE_P(NaiveMatcher, MatcherBenchmark, ::testing::ValuesIn(naiveTests) );
 
 std::function<int(std::string p, std::string t)> r_RabinKarp = rabinKarp;
-MatcherTestInfo rabinKarpTests[] = {
+std::vector<MatcherTestInfo> rabinKarpTests = {
         {100,       1000,       r_RabinKarp},
         {100,       10000,      r_RabinKarp},
         {5000,      10000,      r_RabinKarp},
